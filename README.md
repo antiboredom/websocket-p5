@@ -20,7 +20,7 @@ Before we create the server we'll set up a `package.json` file. This file contai
 
 In the terminal type:
 
-```
+```bash
 npm init
 ```
 
@@ -30,7 +30,7 @@ The next step is to install expressjs - a simple web framework that will help us
 
 To install express, just type:
 
-```
+```bash
 npm install express --save
 ```
 
@@ -44,7 +44,7 @@ Ok, so now we have expressjs installed, we can use it to make a very simple web 
 
 Create a new file called `server.js`, and paste this in:
 
-```
+```javascript
 var express = require('express')
 var app = express();
 var server = require('http').Server(app);
@@ -58,7 +58,7 @@ server.listen(3000);
 
 Run the server by typing:
 
-```
+```bash
 node server.js
 ```
 
@@ -66,7 +66,7 @@ node server.js
 
 #### Static files
 
-```
+```javascript
 app.use(express.static('public'));
 ```
 
@@ -74,7 +74,7 @@ app.use(express.static('public'));
 
 Socket.io is library that uses a technology called web sockets to enable real-time communication between a client (your browser) and a server (in this case your nodejs server).
 
-```
+```bash
 npm install --save socket.io
 ```
 
@@ -83,7 +83,7 @@ Note: socket.io is totally independent of p5js.
 
 In `server.js`:
 
-```
+```javascript
 var express = require('express')
 var app = express();
 var server = require('http').Server(app);
@@ -104,7 +104,7 @@ io.on('connection', function (socket) {
 
 In `index.html`:
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -125,20 +125,21 @@ In `index.html`:
 [see example_2]
 
 #### Flocking socket example
-[see example_1]
+[see example_3]
 
 ## Deploying to Heroku
 
 ### Create a git repository
 
 create a .gitignore file and put this in it:
+
 ```
 node_modules/
 ```
 
 Initialize a git repo:
 
-```
+```bash
 git init
 git add .
 git commit -m 'initial commit'
@@ -146,7 +147,7 @@ git commit -m 'initial commit'
 
 ### Create the Heroku instance
 
-```
+```bash
 heroku create
 ```
 
@@ -158,7 +159,7 @@ web: node server.js
 
 Then commit your change to the git repo:
 
-```
+```bash
 git add .
 git commit -m 'added procfile for heroku'
 ```
@@ -166,7 +167,7 @@ git commit -m 'added procfile for heroku'
 
 ### Deploy
 
-```
+```bash
 git push heroku master
 ```
 
